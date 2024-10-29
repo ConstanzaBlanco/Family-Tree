@@ -12,23 +12,20 @@ public class Buscador
         int Resultado = 0;
         List<Person> lista = new List<Person>();
         lista.Add(person);
-        foreach (Person descendiente in lista)
+        for (int i = 0; i < lista.Count; i++) //Busca de manera anidadada el decendiete de la primer persona, el decendiente del decendiente y así anidadamente
         {
+            Person descendiente = lista[i];
             if (descendiente.Children.Any())
             {
-                foreach (Person child in descendiente.Children)
-                {
-                    lista.Add(child);
-                }
+                lista.AddRange(descendiente.Children);
             }
         }
 
-        foreach (Person familiar in lista)
+        foreach (Person familiar in lista) //Suma las edades de cada fimiliar contenidos en la lista
         {
             Resultado += familiar.Age;
-            Console.WriteLine(Resultado);
         }
-
+        Console.WriteLine($"Desde {person.Name} hasta su ultimo decendiente, la suma de sus edades es {Resultado}");
         return Resultado;
     }
 
@@ -37,27 +34,20 @@ public class Buscador
         int Resultado = 0;
         List<Node> lista = new List<Node>();
         lista.Add(node);
-        foreach (Node nodo in lista)
+        for (int i = 0; i < lista.Count; i++) //Busca de manera anidadada el decendiete del primer nodo, el decendiente del decendiente y así anidadamente
         {
-            if (nodo.Children.Any())
+            Node descendiente = lista[i];
+            if (descendiente.Children.Any())
             {
-                foreach (Node child in node.Children)
-                {
-                    lista.Add(child);
-                }
+                lista.AddRange(descendiente.Children);
             }
         }
 
         foreach (Node nod in lista)
         {
-            Resultado += nod.Number;
+            Resultado += nod.Number; //Suma los numeros de cada nodo contenidos en la lista
         }
-
+        Console.WriteLine($"Desde el primer nodo dado hasta su ultimo decendiente, la suma de sus numeros es {Resultado}");
         return Resultado;
-    }
-
-    public Buscador()
-    {
-        this.Resultado = 0;
     }
 }

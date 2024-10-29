@@ -24,6 +24,8 @@ namespace Program
 
             n3.AddChildren(n6);
             n3.AddChildren(n7);
+            Buscador buscadornodos = new Buscador();
+            n1.AcceptBuscadorSuma(buscadornodos);
 
             // visitar el árbol aquí
 
@@ -38,18 +40,17 @@ namespace Program
             
             Person p7 = new Person(5, "Gennaro");
             
-            p1.AddChildren(p2);
-            p1.AddChildren(p3);
+            p1.AddChildren(p2); //Graciela es hija de jose
+            p1.AddChildren(p3); //Marcela es hija de jose
             
-            p2.AddChildren(p4);
-            p3.AddChildren(p5);
-            p3.AddChildren(p6);
+            p2.AddChildren(p4); //Joaquin es hijo de Graciela
+            p3.AddChildren(p5); //Lucas es hijo de Marcela
+            p3.AddChildren(p6); //Sabrina es hija de Marcela
             
-            p6.AddChildren(p7);
+            p6.AddChildren(p7); //Gennaro es hijo de Sabrina
 
             Buscador b1 = new Buscador();
-            p1.AcceptBuscadorSuma(b1);
-            b1.Sumar(p1);
+            p1.AcceptBuscadorSuma(b1); 
         }
     }
 }
