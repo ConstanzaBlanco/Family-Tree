@@ -50,4 +50,32 @@ public class Buscador
         Console.WriteLine($"Desde el primer nodo dado hasta su ultimo decendiente, la suma de sus numeros es {Resultado}");
         return Resultado;
     }
+
+    public string NombreMasLargo(Person person)
+    {
+        int CantLetras = 0;
+        string nombre = "";
+        int nombres = 0;
+        List<Person> lista = new List<Person>();
+        lista.Add(person);
+        for (int i = 0; i < lista.Count; i++) //Busca de manera anidadada el decendiete de la primer persona, el decendiente del decendiente y así anidadamente
+        {
+            Person descendiente = lista[i];
+            if (descendiente.Children.Any())
+            {
+                lista.AddRange(descendiente.Children);
+            }
+        }
+
+        foreach (Person familiar in lista) //Suma las edades de cada fimiliar contenidos en la lista
+        {
+            if (familiar.Name.Length>=CantLetras)
+            {
+                nombre = familiar.Name;
+                CantLetras = familiar.Name.Length;
+            }
+        }
+        Console.WriteLine("El nombre mas largo es: "+ nombre);
+        return nombre;
+    }
 }

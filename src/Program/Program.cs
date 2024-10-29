@@ -38,7 +38,7 @@ namespace Program
             Person p5 = new Person(22, "Lucas");
             Person p6 = new Person(30, "Sabrina");
             
-            Person p7 = new Person(5, "Gennaro");
+            Person p7 = new Person(5, "Agustin");
             
             p1.AddChildren(p2); //Graciela es hija de jose
             p1.AddChildren(p3); //Marcela es hija de jose
@@ -47,10 +47,11 @@ namespace Program
             p3.AddChildren(p5); //Lucas es hijo de Marcela
             p3.AddChildren(p6); //Sabrina es hija de Marcela
             
-            p6.AddChildren(p7); //Gennaro es hijo de Sabrina
+            p6.AddChildren(p7); //Agustin es hijo de Sabrina
 
             Buscador b1 = new Buscador();
-            p1.AcceptBuscadorSuma(b1); 
+            p1.AcceptBuscadorSuma(b1);
+            p1.AcceptBuscadorNombre(b1);
         }
     }
 }

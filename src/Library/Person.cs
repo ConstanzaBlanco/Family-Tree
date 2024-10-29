@@ -47,4 +47,9 @@ public class Person
     {
         buscador.Sumar(this);
     }
+
+    public void AcceptBuscadorNombre(Buscador buscador)
+    {
+        buscador.NombreMasLargo(this);
+    }
 }
