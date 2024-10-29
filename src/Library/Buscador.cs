@@ -75,7 +75,7 @@ public class Buscador
                 CantLetras = familiar.Name.Length;
             }
         }
-        Console.WriteLine("El nombre mas largo es: "+ nombre);
+        Console.WriteLine($"El nombre mas largo desde {person.Name} hasta su ultimo descendiente es: {nombre}");
         return nombre;
     }
 }

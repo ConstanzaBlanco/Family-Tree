@@ -51,7 +51,7 @@ namespace Program
 
             Buscador b1 = new Buscador();
             p1.AcceptBuscadorSuma(b1);
-            p1.AcceptBuscadorNombre(b1);
+            p3.AcceptBuscadorNombre(b1);
         }
     }
 }
