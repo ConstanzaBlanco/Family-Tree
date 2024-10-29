@@ -33,5 +33,10 @@ namespace Library
         {
             this.children.Add(n);
         }
+
+        public void AcceptBuscadorSuma(Buscador buscador)
+        {
+            buscador.Sumar(this);
+        }
     }
 }
