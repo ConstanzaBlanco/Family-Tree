@@ -52,4 +52,9 @@ public class Person
     {
         buscador.NombreMasLargo(this);
     }
+    
+    public void AcceptBuscadorHijoMayorEdad(Buscador buscador)
+    {
+        buscador.AncestroMayorEdad(this);
+    }
 }

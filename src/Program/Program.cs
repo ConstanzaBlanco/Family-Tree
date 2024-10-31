@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Library;
+﻿using Library;
 
 namespace Program
 {
@@ -30,28 +28,36 @@ namespace Program
             // visitar el árbol aquí
 
             Person p1 = new Person(80, "Jose");
+            Person p2 = new Person(85, "Maria");
             
-            Person p2 = new Person(55, "Graciela");
-            Person p3 = new Person(57, "Marcela");
+            Person p3 = new Person(55, "Graciela");
+            Person p4 = new Person(57, "Marcela");
+            Person p5 = new Person(60, "Joaquin");
             
-            Person p4 = new Person(23, "Joaquin");
-            Person p5 = new Person(22, "Lucas");
-            Person p6 = new Person(30, "Sabrina");
+            Person p6 = new Person(33, "Lucas");
+            Person p7 = new Person(30, "Sabrina");
             
-            Person p7 = new Person(5, "Agustin");
+            Person p8 = new Person(14, "Agustin");
             
-            p1.AddChildren(p2); //Graciela es hija de jose
-            p1.AddChildren(p3); //Marcela es hija de jose
+            //El metodo AddChildren para nosotros lo que hace es agregar al padre o madre de la persona a la que indica, por lo que nuestro arbol se veria algo asi:
+            //             Nieto
+            //     Padre           Madre
+            //Abuelo  Abuela  Abuelo  Abuela
             
-            p2.AddChildren(p4); //Joaquin es hijo de Graciela
-            p3.AddChildren(p5); //Lucas es hijo de Marcela
-            p3.AddChildren(p6); //Sabrina es hija de Marcela
+            p8.AddChildren(p7);//Sabrina es Madre de Agustin
+            p8.AddChildren(p6);//Lucas es padre de agustin
             
-            p6.AddChildren(p7); //Agustin es hijo de Sabrina
+            p6.AddChildren(p3); //Graciela es madre de Lucas
+            p7.AddChildren(p5); //Joaquin es padre de Sabrina
+            p7.AddChildren(p4); //Marcela es madre de Sabrina
+            
+            p3.AddChildren(p2); //Maria es madre de Graciela
+            p5.AddChildren(p1); //Jose es padre de Joaquin
 
             Buscador b1 = new Buscador();
-            p1.AcceptBuscadorSuma(b1);
-            p3.AcceptBuscadorNombre(b1);
+            p8.AcceptBuscadorSuma(b1);
+            p8.AcceptBuscadorHijoMayorEdad(b1);
+            
         }
     }
 }
